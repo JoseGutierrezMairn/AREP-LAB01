@@ -10,20 +10,20 @@ import java.io.*;
 public class JoseLinkedList extends AbstractSequentialList<Node> implements List<Node>, Deque<Node>, Cloneable, Serializable{
 
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Node head;
 	private Node tail;
 	private int size;
 	
+	/***
+	 * JoseLinkedList's builder
+	 */
 	public JoseLinkedList() {
 		head = null;
 		tail = null;
 		size = 0;
 	}
-
+	
 	public void addFirst(Node e) {
 		if(head == null && tail == null) {
 			head = tail = e;
