@@ -11,7 +11,7 @@ import org.junit.Test;
  */
 public class AppTest 
 {
-    @Test
+   @Test
     public void shouldReadTheTestFile() {
     	Reader r = new Reader();
     	List<List<String>> answ = new ArrayList<List<String>>();
@@ -34,7 +34,7 @@ public class AppTest
     	temp.add("fin");
     	temp.add("lineas");
     	answ.add(temp);
-    	List<List<String>> data = r.readFile("fileTests.txt");
+    	List<List<String>> data = r.readFile("testFile.txt");
     	
     	int i = 0;
     	for (List<String> row : data) {
@@ -43,6 +43,55 @@ public class AppTest
     		i++;
     	}
     	
+    }
+    
+    @Test
+    public void shouldAddNodesInJoseLinkedList() {
+    	JoseLinkedList jl = new JoseLinkedList();
+    	jl.addFirst(new Node(1));
+    	jl.addFirst(new Node(2));
+    	jl.addFirst(new Node(3));
+    	jl.addFirst(new Node(4));
+    	jl.addFirst(new Node(5));
+    }
+    
+    @Test
+    public void shouldReturnCorrectNodesFromJoseLinkedList() {
+    	JoseLinkedList jl = new JoseLinkedList();
+    	jl.addFirst(new Node(1));
+    	assertTrue(1==jl.getFirst().getValue());
+    	jl.addFirst(new Node(2));
+    	assertTrue(1==jl.getFirst().getValue());
+    	assertTrue(2==jl.getLast().getValue());
+    	jl.addFirst(new Node(3));
+    	assertTrue(1==jl.getFirst().getValue());
+    	assertTrue(3==jl.getLast().getValue());
+    	jl.addFirst(new Node(4));
+    	assertTrue(1==jl.getFirst().getValue());
+    	assertTrue(4==jl.getLast().getValue());
+    	jl.addFirst(new Node(5));
+    	assertTrue(1==jl.getFirst().getValue());
+    	assertTrue(5==jl.getLast().getValue());
+    }
+    
+    
+    @Test
+    public void JoseLinkedListShouldBeArranged() {
+    	JoseLinkedList jl = new JoseLinkedList();
+    	jl.addFirst(new Node(1));
+    	assertTrue(1==jl.getFirst().getValue());
+    	assertTrue(1==jl.getFirst().getValue());
+    	jl.addFirst(new Node(2));
+    	assertTrue(1==jl.getFirst().getValue());
+    	assertTrue(2==jl.getLast().getValue());
+    	assertTrue(null==jl.getLast().getNext());
+    	assertTrue(2==jl.getFirst().getNext().getValue());
+    	jl.addFirst(new Node(3));
+    	assertTrue(1==jl.getFirst().getValue());
+    	assertTrue(3==jl.getLast().getValue());
+    	assertTrue(null==jl.getLast().getNext());
+    	assertTrue(2==jl.getFirst().getNext().getValue());
+    
     }
     
 
