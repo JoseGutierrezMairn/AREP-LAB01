@@ -1,3 +1,3 @@
-#AREP - Laboratorio 1
-##Autor
+##AREP - Laboratorio 1
+###Autor
 *Jose Gutierrez
