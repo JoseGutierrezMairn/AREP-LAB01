@@ -93,6 +93,20 @@ public class AppTest
     	assertTrue(2==jl.getFirst().getNext().getValue());
     
     }
+	
+	@Test
+    public void shouldReturnTheCorrectAnswer() {
+		Calculator c = new Calculator();
+		Reader r = new Reader();
+    	JoseLinkedList jl = new JoseLinkedList();
+    	List<List<String>> data = r.readFile("archivo.txt");
+		for (int i = 0; i < data.size(); i++){
+			jl.addFirst(new Node(Double.parseDouble(data.get(i).get(0))));
+		}
+		assertTrue(c.calculateMeanOf(jl) == 550.6);
+		assertTrue(c.calculateStandardDerivationOf(jl, 550.6) == 572.03 );
+		
+    }
     
 
     
